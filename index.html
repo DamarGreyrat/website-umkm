@@ -8,36 +8,53 @@
   </head>
 
   <body>
-    <main class="page">
-      <section class="hero">
+    <header class="site-header">
+      <a class="brand" href="#beranda">Ayam Bakar Madu</a>
+      <nav aria-label="Navigasi utama">
+        <a aria-current="page" href="index.html">Beranda</a>
+        <a href="#kontak">Kontak</a>
+        <a href="#menu">Menu</a>
+        <a href="tentang.html">Tentang Kami</a>
+      </nav>
+    </header>
+    <main class="page" id="beranda">
+      <section class="hero" aria-labelledby="hero-title">
         <p class="eyebrow">UMKM Pekalongan</p>
-        <h1>Ayam Bakar Madu</h1>
-        <p>Ayam Bakar asli Pekalongan yang gurih dan mengenyangkan.</p>
+        <h1 id="hero-title">Ayam Bakar Madu</h1>
+        <p>Ayam Bakar asli Pekalongan yang gurih dan mengenyangkan</p>
         <button id="promoButton" type="button">Lihat promo hari ini</button>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-drumstick preview-icon"><path d="M15.4 15.63a7.875 6 135 1 1 6.23-6.23 4.5 3.43 135 0 0-6.23 6.23"/><path d="m8.29 12.71-2.6 2.6a2.5 2.5 0 1 0-1.65 4.65A2.5 2.5 0 1 0 8.7 18.3l2.59-2.59" alt="icon paha ayam"/></svg>
       </section>
-
-      <section aria-labelledby="produk-title">
-        <h2 id="produk-title">Produk Unggulan</h2>
-        <ul class="products">
-          <li>Ayam Bakar 1/4 - Rp20.000</li>
-          <li>Ayam Bakar 1/2 - Rp30.000</li>
-          <li>Ayam Bakar 1 ekor - Rp45.000</li>
-        </ul>
-      </section>
-
-      <section aria-labelledby="jam-title">
-        <h2 id="jam-title">Jam Buka</h2>
-        <p>10.00 - 21.00 WIB</p>
-      </section>
-
-      <section aria-labelledby="lokasi-title">
-        <h2 id="lokasi-title">Lokasi</h2>
-        <p>
-          4G2G+3F2, Balutan, Purwoharjo, Kec. Comal,
-          Kabupaten Pemalang, Jawa Tengah 52363
-        </p>
-      </section>
+      <div class="product-list">
+        <article class="product-card" id="menu" >
+          <h2>Ayam Bakar Madu 1/4</h2>
+          <h3>Ayam Bakar Madu untuk porsi satu orang.</h3>
+          <p class="price">Rp20.000</p>
+          <img src="assets/images/ayam4.png" alt="Ayam Bakar Madu 1/4" class="image-menu">
+        </article>
+        <article class="product-card">
+          <h2>Ayam Bakar Madu 1/2</h2>
+          <h3>Ayam Bakar Madu untuk porsi Dua orang.</h3>
+          <p class="price">Rp28.000</p>
+          <img src="assets/images/ayam3.jpg" alt="Ayam Bakar Madu 1/2" class="image-menu">
+        </article>
+                <article class="product-card">
+          <h2>Ayam Bakar Madu 1 ekor</h2>
+          <h3>Ayam Bakar Madu untuk porsi empat orang.</h3>
+          <p class="price">Rp40.000</p>
+          <img src="assets/images/ayam1.png" alt="Ayam Bakar Madu 1 ekor" class="image-menu">
+        </article>
+                <article class="product-card">
+          <h2>Sate Ayam Madu</h2>
+          <h3>Sate ayam dengan madu manis.</h3>
+          <p class="price">Rp19.000</p>
+          <img src="assets/images/ayam2.png" alt="sate ayam madu" class="image-menu">
+        </article>
+      </div>
     </main>
+    <footer id="kontak" class="site-footer">
+      <p>Hubungi Ayam Bakar Madu Damar   melalui WhatsApp: 0812-0000-0000 instagram: @AyamBakarDamar</p>
+    </footer>
 
     <script src="js/script.js"></script>
   </body>

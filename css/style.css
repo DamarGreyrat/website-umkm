@@ -37,3 +37,60 @@ button {
   border: 0;
   border-radius: 999px;
 }
+
+button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 24px;
+  background: white;
+  border-bottom: 1px solid #ead8c3;
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #4b2e21;
+  font-weight: 700;
+}
+
+a:focus-visible {
+  outline: 3px solid #ffd166;
+  outline-offset: 4px;
+}
+
+.brand {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #4b2715;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.site-footer {
+  padding: 24px;
+  background: #2f2118;
+  color: white;
+  text-align: center;
+}
+
+.nav a[aria-current="page"] {
+  font-weight: 800; 
+}
+
+.image-menu {
+      width: 350px;
+    height: 300px;
+}
