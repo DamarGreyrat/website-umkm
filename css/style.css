@@ -1,151 +1,357 @@
+/* ==========================================================================
+   1. DESIGN TOKENS
+   ========================================================================== */
+:root {
+  /* Warna */
+  --color-primary: #6f3b1f;
+  --color-primary-strong: #4b2715;
+  --color-primary-soft: #fef3c7;
+  --color-accent: #d98324;
+  --color-accent-strong: #b86b1b;
+  --color-text: #2f2118;
+  --color-muted: #6b5b52;
+  --color-surface: #ffffff;
+  --color-surface-soft: #fff8f0;
+  --color-border: #dccbbc;
+  --color-focus: #1d4ed8;
+
+  /* Spacing */
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 0.75rem;  /* 12px */
+  --space-3: 1rem;     /* 16px */
+  --space-4: 1.5rem;   /* 24px */
+  --space-5: 2rem;     /* 32px */
+
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-full: 9999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgb(47 33 24 / 0.08);
+  --shadow-card: 0 0.5rem 1.5rem rgb(47 33 24 / 0.1);
+}
+
+/* ==========================================================================
+   2. BASELINE & RESET
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
 body {
   margin: 0;
-  color: #2f2118;
-  background: #f6f0e8;
-  font-family: Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--color-surface-soft);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .page {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 32px 20px;
+  width: min(100% - 2rem, 60rem);
+  margin-inline: auto;
+  padding-block: var(--space-5);
 }
 
-.hero {
-  padding: 36px;
-  color: white;
-  background: #d98324;
-  border-radius: 24px;
+/* ==========================================================================
+   3. TIPOGRAFI
+   ========================================================================== */
+h1,
+h2,
+h3 {
+  color: var(--color-text);
+  line-height: 1.25;
+  text-wrap: balance;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin-bottom: var(--space-2);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-3);
+  color: var(--color-primary-strong);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-2);
+}
+
+p,
+li {
+  max-width: 68ch;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+
+ul {
+  padding-left: var(--space-4);
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+}
+
+li {
+  margin-bottom: var(--space-1);
 }
 
 .eyebrow {
-  margin: 0 0 8px;
-  letter-spacing: 0.14em;
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.products {
-  padding-left: 1.2rem;
+.hero .eyebrow {
+  color: var(--color-primary-soft);
 }
 
-button {
-  padding: 12px 18px;
-  color: #2f2118;
-  font-weight: 700;
-  cursor: pointer;
-  background: #ffd166;
-  border: 0;
-  border-radius: 999px;
-}
-
-button:focus-visible {
-  outline: 3px solid #2563eb;
-  outline-offset: 3px;
-}
-
+/* ==========================================================================
+   4. KOMPONEN: NAVIGASI & HEADER
+   ========================================================================== */
 .site-header {
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: center;
-  padding: 16px 24px;
-  background: white;
-  border-bottom: 1px solid #ead8c3;
-}
-
-nav {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-nav a {
-  color: #4b2e21;
-  font-weight: 700;
-}
-
-a:focus-visible {
-  outline: 3px solid #ffd166;
-  outline-offset: 4px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .brand {
   display: inline-block;
-  margin-bottom: 8px;
-  color: #4b2715;
+  margin-bottom: var(--space-2);
+  color: var(--color-primary-strong);
+  font-size: 1.25rem;
   font-weight: 800;
   text-decoration: none;
 }
 
-.site-footer {
-  padding: 24px;
-  background: #2f2118;
-  color: white;
-  text-align: center;
+.brand:hover {
+  color: var(--color-primary);
 }
 
+nav a,
+.nav a {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  margin-right: var(--space-1);
+  margin-bottom: var(--space-1);
+  color: var(--color-primary-strong);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+.nav a:hover {
+  background: var(--color-surface-soft);
+  color: var(--color-primary);
+}
+
+nav a[aria-current="page"],
 .nav a[aria-current="page"] {
-  font-weight: 800; 
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-weight: 700;
 }
 
-.image-menu {
-      width: 350px;
-    height: 300px;
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav li {
+  display: inline-block;
+  margin-right: var(--space-1);
+  margin-bottom: var(--space-1);
+}
+
+/* ==========================================================================
+   5. KOMPONEN: HERO
+   ========================================================================== */
+.hero {
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+  color: var(--color-surface);
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.hero h1,
+.hero p {
+  color: var(--color-surface);
+}
+
+.hero button,
+.hero .button {
+  margin-top: var(--space-2);
+  color: var(--color-primary-strong);
+  background: var(--color-primary-soft);
+}
+
+.hero button:hover,
+.hero .button:hover {
+  color: var(--color-primary-strong);
+  background: #fde68a;
+}
+
+/* ==========================================================================
+   6. KOMPONEN: TOMBOL
+   ========================================================================== */
+button,
+.button,
+.btn-submit {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-surface);
+  background: var(--color-accent);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover,
+.button:hover,
+.btn-submit:hover {
+  background: var(--color-accent-strong);
+  color: var(--color-surface);
+}
+
+button:active,
+.button:active,
+.btn-submit:active {
+  transform: translateY(1px);
+}
+
+/* ==========================================================================
+   7. KOMPONEN: CARD & MEDIA
+   ========================================================================== */
+.info-card,
+.media-card {
+  margin-block: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.info-card p:last-child {
+  margin-bottom: 0;
+}
+
+figure {
+  margin-inline: 0;
+}
+
+figcaption {
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 img {
   max-width: 100%;
-  height: auto; 
+  height: auto;
+  border-radius: var(--radius-sm);
 }
 
-figure {
-  margin: 0 0 24px;
+.media-card img {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--space-2);
 }
 
-figcaption {
-  margin-top: 8px;
-  color: #6b5b52;
+audio {
+  display: block;
+  width: 100%;
+  max-width: 32rem;
+  margin-top: var(--space-2);
+  border-radius: var(--radius-sm);
 }
 
+/* ==========================================================================
+   8. KOMPONEN: TABEL
+   ========================================================================== */
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-block: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
 }
 
 caption {
-  margin-bottom: 8px;
+  margin-bottom: var(--space-2);
+  color: var(--color-muted);
   font-weight: 700;
   text-align: left;
 }
 
-th,td {
-  padding: 10px;
+th,
+td {
+  padding: var(--space-2) var(--space-3);
   text-align: left;
-  border: 1px solid #dccbbc;
+  border: 1px solid var(--color-border);
 }
 
-/* Form Styles */
+th {
+  background: var(--color-surface-soft);
+  color: var(--color-primary-strong);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   9. KOMPONEN: FORM
+   ========================================================================== */
+form,
 #form-kontak {
-  margin-top: 24px;
-  background: #ffffff;
-  padding: 28px 32px;
-  border-radius: 16px;
-  border: 1px solid #ead8c3;
-  box-shadow: 0 4px 12px rgba(47, 33, 24, 0.05);
+  margin-block: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
 }
 
 .field {
-  margin-bottom: 20px;
+  margin-bottom: var(--space-3);
 }
 
-.field label {
+.field label,
+legend {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-1);
   font-weight: 700;
-  font-size: 0.95rem;
-  color: #4b2e21;
+  color: var(--color-primary-strong);
 }
 
 .field input[type="text"],
@@ -154,123 +360,123 @@ th,td {
 .field select,
 .field textarea {
   width: 100%;
-  box-sizing: border-box;
-  padding: 10px 14px;
-  font-size: 1rem;
+  padding: var(--space-2);
+  color: var(--color-text);
   font-family: inherit;
-  color: #2f2118;
-  background-color: #fff;
-  border: 1.5px solid #dccbbc;
-  border-radius: 8px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  outline: none;
-  border-color: #d98324;
-  box-shadow: 0 0 0 3px rgba(217, 131, 36, 0.2);
+  font-size: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease;
 }
 
 .field textarea {
   resize: vertical;
-  min-height: 110px;
+  min-height: 7rem;
 }
 
 .field-hint {
   display: block;
-  margin-top: 6px;
+  margin-top: var(--space-1);
   font-size: 0.85rem;
-  color: #7a665a;
+  color: var(--color-muted);
 }
 
+fieldset,
 .form-fieldset {
-  border: 1.5px solid #dccbbc;
-  border-radius: 10px;
-  padding: 16px 20px;
-  margin: 0 0 20px;
-  background: #faf7f2;
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
 }
 
+fieldset legend,
 .form-fieldset legend {
-  font-weight: 700;
+  padding-inline: var(--space-1);
   font-size: 0.95rem;
-  color: #4b2e21;
-  padding: 0 8px;
+  font-weight: 700;
+  color: var(--color-primary-strong);
 }
 
 .options-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 8px;
+  margin-top: var(--space-1);
 }
 
 .option-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  color: #2f2118;
-  user-select: none;
-}
-
-.option-label input[type="radio"] {
-  cursor: pointer;
-  accent-color: #d98324;
-  width: 18px;
-  height: 18px;
-  margin: 0;
-}
-
-.btn-submit {
   display: inline-block;
-  background: #d98324;
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 12px 28px;
-  border: none;
-  border-radius: 8px;
+  margin-right: var(--space-3);
+  margin-bottom: var(--space-1);
+  font-size: 0.95rem;
+  color: var(--color-text);
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
+  vertical-align: middle;
 }
 
-.btn-submit:hover {
-  background: #b86b1b;
-}
-
-.btn-submit:active {
-  transform: translateY(1px);
-}
-
-.btn-submit:focus-visible {
-  outline: 3px solid #ffd166;
-  outline-offset: 2px;
+.option-label input[type="radio"],
+.option-label input[type="checkbox"],
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: var(--space-1);
+  cursor: pointer;
+  accent-color: var(--color-accent);
+  vertical-align: middle;
 }
 
 .preview-section {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 2px dashed #ead8c3;
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 2px dashed var(--color-border);
 }
 
 .preview-section h2 {
-  margin: 0 0 12px;
-  font-size: 1.2rem;
-  color: #4b2e21;
+  margin-bottom: var(--space-2);
+  font-size: 1.25rem;
+  color: var(--color-primary-strong);
 }
 
 #preview-form {
-  padding: 16px 20px;
+  padding: var(--space-3);
   white-space: pre-wrap;
-  background: #faf7f2;
-  border: 1px solid #dccbbc;
-  border-radius: 8px;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   font-family: Consolas, Monaco, "Courier New", monospace;
   font-size: 0.95rem;
-  color: #2f2118;
+  color: var(--color-text);
   line-height: 1.6;
+}
+
+/* ==========================================================================
+   10. KOMPONEN: FOOTER
+   ========================================================================== */
+.site-footer {
+  margin-top: var(--space-5);
+  padding: var(--space-4);
+  color: var(--color-muted);
+  text-align: center;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.site-footer p {
+  margin-bottom: 0;
+  max-width: none;
+}
+
+/* ==========================================================================
+   11. FOCUS INDICATOR
+   ========================================================================== */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 1px;
+  border-color: var(--color-focus);
 }
