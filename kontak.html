@@ -27,6 +27,8 @@
         </div>
       </section>
       <form id="form-kontak" action="#" method="post">
+        <span class="form-badge">Fast Response (WhatsApp)</span>
+
         <div class="field">
           <label for="nama">Nama lengkap</label>
           <input id="nama" name="nama" type="text" autocomplete="name" required minlength="3" placeholder="Contoh: Budi Santoso" />
@@ -89,12 +91,15 @@
           </div>
         </fieldset>
 
-        <div class="field">
+        <div class="field field-full">
           <label for="pesan">Pesan</label>
           <textarea id="pesan" name="pesan" rows="5" required minlength="10" placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."></textarea>
         </div>
 
-        <button type="submit" class="btn-submit">Tampilkan Preview</button>
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">Tampilkan Preview</button>
+          <span class="form-note">Data form diverifikasi sebelum dikirim.</span>
+        </div>
 
         <section class="preview-section" aria-labelledby="preview-title">
           <h2 id="preview-title">Preview Data</h2>
