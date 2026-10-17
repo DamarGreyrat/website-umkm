@@ -8,8 +8,8 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#beranda">Ayam Bakar Madu</a>
-      <nav aria-label="Navigasi utama">
+      <a class="brand" href="index.html">Ayam Bakar Madu</a>
+      <nav class="nav" aria-label="Navigasi utama">
         <a href="index.html">Beranda</a>
         <a href="tentang.html">Tentang Kami</a>
         <a aria-current="page" href="produk.html">Produk</a>
@@ -19,68 +19,137 @@
     </header>
     <main id="konten" class="page">
       <section class="hero" aria-labelledby="hero-title">
-        <p class="eyebrow">UMKM Pekalongan</p>
-        <h1 id="hero-title">Produk Ayam Bakar Madu</h1>
-        <p>Pilih produk sesuai selera anda  .</p>
+        <div class="hero-content">
+          <p class="eyebrow">UMKM Pekalongan</p>
+          <h1 id="hero-title">Produk Ayam Bakar Madu</h1>
+          <p>Pilih produk sesuai selera anda.</p>
+        </div>
       </section>
       <section aria-labelledby="kategori-title">
         <h2 id="kategori-title">Kategori Produk</h2>
         <ul>
-            <li>Paket Ayam Bakar Madu</li>
-            <li>Paket Sate Ayam Madu</li>
+          <li>Paket Ayam Bakar Madu</li>
+          <li>Paket Sate Ayam Madu</li>
         </ul>
       </section>
-        <section aria-labelledby="harga-title">
-          <h2 id="harga-title">Daftar Harga Menu</h2>
-          <table>
-            <caption>Daftar harga menu Ayam Bakar Madu Damar</caption>
-            <thead>
-              <tr>
-                <th scope="col">Produk</th>
-                <th scope="col">Porsi / Ukuran</th>
-                <th scope="col">Harga</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Ayam Bakar Madu 1/4</th>
-                <td>Porsi 1 Orang</td>
-                <td>Rp20.000</td>
-              </tr>
-              <tr>
-                <th scope="row">Ayam Bakar Madu 1/2</th>
-                <td>Porsi 2 Orang</td>
-                <td>Rp28.000</td>
-              </tr>
-              <tr>
-                <th scope="row">Ayam Bakar Madu 1 Ekor</th>
-                <td>Porsi 4 Orang / Keluarga</td>
-                <td>Rp40.000</td>
-              </tr>
-            </tbody>
-          </table>
-          <br>
-          <table>
-            <caption>Produk Baru Ayam Bakar Madu Damar</caption>
-            <thead>
-              <tr>
-                <th scope="col">Produk</th>
-                <th scope="col">Porsi / Ukuran</th>
-                <th scope="col">Harga</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Sate Ayam Madu</th>
-                <td>1 Porsi (10 Tusuk)</td>
-                <td>Rp19.000</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+      <section aria-labelledby="produk-pilihan-title">
+        <h2 id="produk-pilihan-title">Produk Pilihan</h2>
+        <div class="product-grid">
+          <article class="product-card">
+            <span class="product-badge">Terlaris</span>
+            <h3>Ayam Bakar Madu 1/4</h3>
+            <p>Potongan paha atau dada empuk berbalur bumbu rempah bakar dan madu murni.</p>
+            <p class="price">Rp20.000</p>
+            <div class="card-actions">
+              <a class="button" href="kontak.html">Tanya produk</a>
+              <a href="#harga-title">Lihat tabel harga</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <span class="product-badge">Hemat</span>
+            <h3>Ayam Bakar Madu 1 Ekor</h3>
+            <p>Satu ekor ayam utuh panggang legit khas Damar, pas untuk santap keluarga.</p>
+            <p class="price">Rp40.000</p>
+            <div class="card-actions">
+              <a class="button" href="kontak.html">Tanya produk</a>
+              <a href="#harga-title">Lihat tabel harga</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <span class="product-badge">Segar</span>
+            <h3>Es Jeruk Madu Pekalongan</h3>
+            <p>Kesegaran perasan jeruk asli berpadu manis alaminya madu murni penyegar dahaga.</p>
+            <p class="price">Rp8.000</p>
+            <div class="card-actions">
+              <a class="button" href="kontak.html">Tanya produk</a>
+              <a href="#harga-title">Lihat tabel harga</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section aria-labelledby="harga-title">
+        <h2 id="harga-title">Daftar Harga Menu</h2>
+        <table>
+          <caption>Daftar harga menu Ayam Bakar Madu Damar</caption>
+          <thead>
+            <tr>
+              <th scope="col">Produk</th>
+              <th scope="col">Porsi / Ukuran</th>
+              <th scope="col">Harga</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Ayam Bakar Madu 1/4</th>
+              <td>Porsi 1 Orang</td>
+              <td>Rp20.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Ayam Bakar Madu 1/2</th>
+              <td>Porsi 2 Orang</td>
+              <td>Rp28.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Ayam Bakar Madu 1 Ekor</th>
+              <td>Porsi 4 Orang / Keluarga</td>
+              <td>Rp40.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Paket Nasi Kotak Komplit</th>
+              <td>Nasi, Ayam 1/4, Lalapan &amp; Sambal</td>
+              <td>Rp25.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Es Jeruk Madu Pekalongan</th>
+              <td>Gelas Besar (Minuman)</td>
+              <td>Rp8.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Es Teh Manis Madu</th>
+              <td>Gelas Sedang (Minuman)</td>
+              <td>Rp5.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Wedang Jahe Madu Hangat</th>
+              <td>Cangkir Hangat (Minuman)</td>
+              <td>Rp7.000</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <table>
+          <caption>Produk Baru Ayam Bakar Madu Damar</caption>
+          <thead>
+            <tr>
+              <th scope="col">Produk</th>
+              <th scope="col">Porsi / Ukuran</th>
+              <th scope="col">Harga</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Sate Ayam Madu</th>
+              <td>1 Porsi (10 Tusuk)</td>
+              <td>Rp19.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Ayam Bakar Madu Pedas Manis</th>
+              <td>Porsi 1 Orang (Potong 1/4)</td>
+              <td>Rp22.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Kulit Ayam Bakar Madu Crispy</th>
+              <td>1 Porsi Gurih Renyah</td>
+              <td>Rp15.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
     <footer class="site-footer">
-      <p>Hubungi Ayam Bakar Madu Damar   melalui WhatsApp: 0812-0000-0000 instagram: @AyamBakarDamar</p>
+      <p>Hubungi Ayam Bakar Madu Damar melalui WhatsApp: 0812-0000-0000 instagram: @AyamBakarDamar</p>
     </footer>
   </body>
 </html>
