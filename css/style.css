@@ -136,9 +136,9 @@ li {
    ========================================================================== */
 .site-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-3);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
   padding: var(--space-3) var(--space-4);
   background: var(--color-surface);
   border-bottom: 2px solid var(--color-border);
@@ -207,15 +207,9 @@ nav a[aria-current="page"],
 
 .nav {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  align-items: flex-start;
-}
-.nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
   flex-wrap: wrap;
+  gap: var(--space-1);
+  align-items: flex-start;
 }
 
 /* ==========================================================================
@@ -227,7 +221,7 @@ nav a[aria-current="page"],
   gap: var(--space-4);
   align-items: center;
   margin-bottom: var(--space-xl);
-  padding: var(--space-5);
+  padding: clamp(1.25rem, 4vw, 2rem);
   color: var(--color-surface);
   background: var(--color-primary);
   border-radius: var(--radius-lg);
@@ -463,11 +457,11 @@ form,
 #form-kontak {
   position: relative; /* Containing block untuk elemen positioning lokal (.form-badge) */
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-4);
   align-items: start;
   margin-block: var(--space-4);
-  padding: var(--space-5) var(--space-4) var(--space-4);
+  padding: clamp(1.5rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.5rem);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -653,17 +647,53 @@ input[type="checkbox"] {
   border-color: var(--color-focus);
 }
 
+/* ==========================================================================
+   13. MEDIA QUERIES — PROGRESSIVE ENHANCEMENT (MOBILE-FIRST)
+   --------------------------------------------------------------------------
+   Breakpoint 42rem (~672px):
+     Gejala  → Header brand + nav terlalu rapat, galeri satu kolom membuang
+               ruang horizontal, nav link menumpuk vertikal.
+     Hasil   → Header menjadi baris (row), nav link horizontal, galeri 2 kolom.
+
+   Breakpoint 48rem (~768px):
+     Gejala  → Hero teks terlalu lebar, product card satu kolom kurang efisien,
+               form kontak field terlalu panjang secara horizontal.
+     Hasil   → Hero 2 kolom (teks + gambar), product grid 2 kolom, form 2 kolom.
+
+   Breakpoint 60rem (~960px):
+     Gejala  → Product card hanya 2 kolom membuang ruang pada layar lebar.
+     Hasil   → Product grid 3 kolom, layout penuh memanfaatkan lebar.
+   ========================================================================== */
+
 @media (min-width: 42rem) {
-  .nav ul { flex-direction: row; }
+  /* Header: dari kolom ke baris */
+  .site-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  /* Nav: link horizontal */
+  .nav { gap: var(--space-2); align-items: center; }
+
+  /* Galeri: 2 kolom */
   .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (min-width: 48rem) {
+  /* Hero: 2 kolom (teks + gambar) */
   .hero { grid-template-columns: 1.2fr 0.8fr; }
+
+  /* Product: 2 kolom */
   .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* Form: 2 kolom */
+  form,
+  #form-kontak { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (min-width: 60rem) {
-  .nav { flex-direction: row; align-items: center; justify-content: space-between; }
+  /* Product: 3 kolom */
   .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
