@@ -9,7 +9,12 @@
   <body>
     <header class="site-header">
       <a class="brand" href="index.html">Ayam Bakar Madu</a>
-      <nav class="nav" aria-label="Navigasi utama">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Buka menu navigasi">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <nav id="primary-nav" class="nav" aria-label="Navigasi utama">
         <a href="index.html">Beranda</a>
         <a aria-current="page" href="tentang.html">Tentang Kami</a>
         <a href="produk.html">Produk</a>
@@ -49,5 +54,7 @@
     <footer class="site-footer">
       <p>Hubungi Ayam Bakar Madu Damar melalui WhatsApp: 0812-0000-0000 instagram: @AyamBakarDamar</p>
     </footer>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
