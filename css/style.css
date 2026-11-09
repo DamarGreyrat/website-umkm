@@ -536,6 +536,11 @@ button:active,
   color: #92400e;
 }
 
+#produk-unggulan {
+  font-weight: 700;
+  color: var(--color-primary, #6f3b1f);
+}
+
 .stock-badge.empty {
   background: #fee2e2;
   color: #991b1b;
