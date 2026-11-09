@@ -473,7 +473,8 @@ button:active,
   border-radius: var(--radius-full);
 }
 
-.category-tag {
+.category-tag,
+.category-note {
   font-size: 0.85rem;
   color: var(--color-primary-strong);
   font-weight: 700;
