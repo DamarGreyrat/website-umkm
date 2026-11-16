@@ -1,9 +1,12 @@
-// 1. Data Produk UMKM (P10 & P11)
+// 1. Data Produk UMKM Ayam Bakar Madu Damar (P10 & P11)
 const produkUmkm = [
-  { nama: "Arabika Gayo", kategori: "Kopi", harga: 85000, stok: 12, unggulan: true },
-  { nama: "Robusta Temanggung", kategori: "Kopi", harga: 65000, stok: 4, unggulan: false },
-  { nama: "Paket Seduh", kategori: "Bundling", harga: 125000, stok: 0, unggulan: false },
-  { nama: "Drip Bag Nusantara", kategori: "Kopi", harga: 45000, stok: 18, unggulan: false },
+  { nama: "Ayam Bakar Madu 1/4", kategori: "Makanan", harga: 20000, stok: 15, unggulan: true },
+  { nama: "Ayam Bakar Madu 1 Ekor", kategori: "Makanan", harga: 40000, stok: 8, unggulan: true },
+  { nama: "Sate Ayam Madu (10 Tusuk)", kategori: "Makanan", harga: 19000, stok: 5, unggulan: false },
+  { nama: "Kulit Ayam Bakar Madu Crispy", kategori: "Makanan", harga: 15000, stok: 3, unggulan: false },
+  { nama: "Paket Nasi Kotak Komplit", kategori: "Paket Hemat", harga: 25000, stok: 0, unggulan: false },
+  { nama: "Es Jeruk Madu Pekalongan", kategori: "Minuman", harga: 8000, stok: 20, unggulan: false },
+  { nama: "Wedang Jahe Madu Hangat", kategori: "Minuman", harga: 7000, stok: 12, unggulan: false },
 ];
 
 // 2. Function formatRupiah
