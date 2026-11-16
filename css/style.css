@@ -556,6 +556,79 @@ button:active,
 }
 
 /* ==========================================================================
+   P11: INTERAKSI FILTER KATALOG & DOM RENDERING
+   ========================================================================== */
+.produk-status {
+  font-size: 0.95rem;
+  color: var(--color-muted, #78350f);
+  font-weight: 600;
+  margin-top: var(--space-1, 0.25rem);
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1rem 1.5rem;
+}
+
+.filter-button {
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--color-text, #1f2937);
+  padding: 0.65rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-button:hover,
+.filter-button:focus-visible {
+  border-color: var(--color-primary, #2563eb);
+  outline: 3px solid rgb(37 99 235 / 20%);
+  outline-offset: 2px;
+}
+
+.filter-button.is-active {
+  background: var(--color-primary, #2563eb);
+  border-color: var(--color-primary, #2563eb);
+  color: #ffffff;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  border: 1px dashed #94a3b8;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  color: #64748b;
+  text-align: center;
+  font-weight: 500;
+}
+
+.ghost-button {
+  display: inline-block;
+  margin-top: var(--space-2, 0.5rem);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px dashed var(--color-border, #cbd5e1);
+  border-radius: var(--radius-sm, 4px);
+  background: transparent;
+  color: var(--color-muted, #64748b);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.2s ease;
+}
+
+.ghost-button:hover {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #f87171;
+}
+
+/* ==========================================================================
    8. KOMPONEN: GALERI & MEDIA (GRID - 2 TRACKS)
    ========================================================================== */
 .gallery-grid {
