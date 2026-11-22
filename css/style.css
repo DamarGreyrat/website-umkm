@@ -875,6 +875,119 @@ input[type="checkbox"] {
 }
 
 /* ==========================================================================
+   10a. VALIDASI FORM & AKSESIBILITAS (P12)
+   ========================================================================== */
+.field-error,
+.form-feedback {
+  margin: 0;
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.field-error {
+  min-height: 1.4rem;
+  font-size: 0.875rem;
+}
+
+[aria-invalid="true"] {
+  border-color: #b91c1c;
+  box-shadow: 0 0 0 3px rgb(185 28 28 / 15%);
+}
+
+.form-feedback.success {
+  color: #166534;
+}
+
+.form-feedback {
+  grid-column: 1 / -1;
+  font-size: 0.95rem;
+}
+
+.form-fieldset,
+#topik-error {
+  grid-column: 1 / -1;
+}
+
+.checkbox-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.checkbox-field .option-label {
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+/* Panel Preferensi & Newsletter */
+.preferensi-section,
+.newsletter-section {
+  margin-top: var(--space-4);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.preferensi-section h2,
+.newsletter-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-2);
+  color: var(--color-primary);
+}
+
+.preferensi-status {
+  margin-bottom: var(--space-3);
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.preferensi-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-strong);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px);
+}
+
+.form-newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 28rem;
+  margin-top: var(--space-3);
+}
+
+.form-newsletter .field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+/* ==========================================================================
    11. KOMPONEN: FOOTER
    ========================================================================== */
 .site-footer {
