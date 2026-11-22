@@ -1,1 +1,1097 @@
-@import url("css/style.css");
+/* ==========================================================================
+   1. DESIGN TOKENS (TEMA: BARA & MADU)
+   ========================================================================== */
+:root {
+  /* Warna Berbasis Fungsi - Identitas Membara (Merah, Oranye, Kuning) */
+  --color-primary: #991b1b;        /* Brand/Header Utama (Merah Bara Membakar) */
+  --color-primary-strong: #7f1d1d; /* Brand Hover & Kontras Gelap (Merah Arang) */
+  --color-primary-soft: #fef08a;   /* Highlight Brand & Active Badge (Kuning Madu) */
+
+  --color-accent: #c2410c;         /* Aksi Interaktif Utama / CTA (Oranye Api) */
+  --color-accent-strong: #9a3412;  /* Aksi Hover CTA (Oranye Bakar Pekat) */
+  --color-accent-soft: #ffedd5;    /* Latar Fieldset & Hover Halus (Krem Oranye Hangat) */
+  --color-brand-glow: #f59e0b;     /* Aksen Kilau Madu Bakar */
+
+  /* Warna Netral & Teks */
+  --color-text: #26130b;           /* Teks Utama (Arang Hangat - Kontras Tinggi) */
+  --color-muted: #78350f;          /* Teks Sekunder/Keterangan (Umber Panggang) */
+  --color-surface: #ffffff;        /* Latar Kartu & Form */
+  --color-surface-soft: #fffbeb;   /* Latar Belakang Halaman (Krem Mentega Hangat) */
+  --color-border: #fed7aa;         /* Garis Pembatas Hangat */
+  --color-focus: #1d4ed8;          /* Indikator Fokus Aksesibel (Royal Blue WCAG AAA) */
+
+  /* Skala Spacing (Termasuk Pasangan Token Baru: Micro & Macro Spacing) */
+  --space-xs: 0.25rem;             /* Pasangan Baru: Micro-spacing (4px) */
+  --space-1: 0.5rem;               /* 8px */
+  --space-2: 0.75rem;              /* 12px */
+  --space-3: 1rem;                 /* 16px */
+  --space-4: 1.5rem;               /* 24px */
+  --space-5: 2rem;                 /* 32px */
+  --space-xl: 3rem;                /* Pasangan Baru: Macro-spacing (48px) */
+
+  /* Skala Radius (Termasuk Pasangan Token Baru: Tight & Large Radius) */
+  --radius-xs: 0.25rem;            /* Pasangan Baru: Tight radius untuk badge/input (4px) */
+  --radius-sm: 0.5rem;             /* 8px */
+  --radius-md: 0.875rem;           /* 14px */
+  --radius-lg: 1.25rem;            /* Pasangan Baru: Large radius untuk card/hero (20px) */
+  --radius-full: 9999px;
+
+  /* Skala Shadow */
+  --shadow-sm: 0 1px 3px rgb(38 19 11 / 0.08);
+  --shadow-card: 0 0.5rem 1.5rem rgb(38 19 11 / 0.12);
+}
+
+/* ==========================================================================
+   2. BASELINE & RESET
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  color: var(--color-text);
+  background: var(--color-surface-soft);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.page {
+  width: min(100% - 2rem, 60rem);
+  margin-inline: auto;
+  padding-block: var(--space-5);
+}
+
+/* ==========================================================================
+   3. TIPOGRAFI
+   ========================================================================== */
+h1,
+h2,
+h3 {
+  color: var(--color-text);
+  line-height: 1.25;
+  text-wrap: balance;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin-bottom: var(--space-2);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-3);
+  color: var(--color-primary);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-2);
+}
+
+p,
+li {
+  max-width: 68ch;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+
+ul {
+  padding-left: var(--space-4);
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+}
+
+li {
+  margin-bottom: var(--space-1);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: var(--color-primary-soft);
+}
+
+/* ==========================================================================
+   4. KOMPONEN: NAVIGASI & HEADER (FLEXBOX)
+   ========================================================================== */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border-bottom: 2px solid var(--color-border);
+  position: relative;
+}
+
+.brand {
+  display: inline-block;
+  margin-bottom: 0;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--color-primary-strong);
+}
+
+/* Tombol Hamburger (Mobile View) */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: var(--space-1);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-toggle:hover {
+  background: var(--color-accent-soft);
+  border-color: var(--color-accent);
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.nav-toggle .hamburger-bar {
+  display: block;
+  width: 1.35rem;
+  height: 2.5px;
+  background-color: var(--color-primary-strong);
+  border-radius: var(--radius-full);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+/* Transformasi Hamburger menjadi ikon 'X' saat terbuka */
+.nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Navigasi Mobile (Default tertutup) */
+.nav {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+
+.nav.is-open {
+  display: flex;
+}
+
+nav ul,
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav li,
+.nav li {
+  margin: 0;
+}
+
+nav a,
+.nav a {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-primary-strong);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-xs);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+.nav a:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+nav a[aria-current="page"],
+.nav a[aria-current="page"] {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   5. KOMPONEN: HERO (GRID - 2 TRACKS)
+   ========================================================================== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  padding: clamp(1.25rem, 4vw, 2rem);
+  color: var(--color-surface);
+  background: var(--color-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.hero h1,
+.hero p {
+  color: var(--color-surface);
+}
+
+.hero-content {
+  display: block;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.hero button,
+.hero .button {
+  margin-top: var(--space-2);
+  color: var(--color-primary-strong);
+  background: var(--color-primary-soft);
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+}
+
+.hero button:hover,
+.hero .button:hover {
+  color: var(--color-primary-strong);
+  background: var(--color-brand-glow);
+}
+
+/* ==========================================================================
+   6. KOMPONEN: TOMBOL
+   ========================================================================== */
+button,
+.button,
+.btn-submit {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-surface);
+  background: var(--color-accent);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover,
+.button:hover,
+.btn-submit:hover {
+  background: var(--color-accent-strong);
+  color: var(--color-surface);
+}
+
+button:active,
+.button:active,
+.btn-submit:active {
+  transform: translateY(1px);
+}
+
+/* ==========================================================================
+   7. KOMPONEN: PRODUK & CARD (GRID - 3 TRACKS / ACTIONS FLEXBOX)
+   ========================================================================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.product-card h3 {
+  margin-bottom: var(--space-2);
+}
+
+.product-badge {
+  align-self: flex-start;
+  padding: 0.25rem var(--space-2);
+  margin-bottom: var(--space-2);
+  color: var(--color-primary-strong);
+  font-size: 0.875rem;
+  font-weight: 800;
+  background: #fef3c7;
+  border-radius: var(--radius-full);
+}
+
+.product-card .price {
+  margin-bottom: var(--space-3);
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 1.125rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.card-actions a:not(.button) {
+  color: var(--color-primary-strong);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.card-actions a:not(.button):hover {
+  color: var(--color-accent);
+}
+
+.info-card,
+.media-card {
+  margin-block: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.info-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   KOMPONEN: PRODUK DINAMIS JAVASCRIPT
+   ========================================================================== */
+.section {
+  margin-bottom: var(--space-xl);
+}
+
+.section-header {
+  margin-bottom: var(--space-4);
+}
+
+.js-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-4);
+}
+
+.js-product-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.js-product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-floating);
+}
+
+.js-product-card h3 {
+  margin-bottom: var(--space-1);
+  font-size: 1.15rem;
+}
+
+.badge-unggulan {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  margin-bottom: var(--space-2);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #854d0e;
+  background: #fef08a;
+  border-radius: var(--radius-full);
+}
+
+.category-tag,
+.category-note {
+  font-size: 0.85rem;
+  color: var(--color-primary-strong);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.js-product-card .product-desc {
+  font-size: 0.925rem;
+  color: var(--color-text-subtle, #4b5563);
+  margin-bottom: var(--space-3);
+  flex-grow: 1;
+}
+
+.js-product-card .price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin-bottom: var(--space-2);
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 1.125rem;
+}
+
+.js-product-card .price-promo {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.js-product-card .price-original {
+  text-decoration: line-through;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.js-product-card .discount-badge {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #991b1b;
+  background: #fee2e2;
+  border-radius: var(--radius-sm, 4px);
+}
+
+.stock-badge {
+  display: inline-flex;
+  margin-block-start: var(--space-2);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: #dcfce7;
+  color: #166534;
+}
+
+.stock-badge.warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+#produk-unggulan {
+  font-weight: 700;
+  color: var(--color-primary, #6f3b1f);
+}
+
+.stock-badge.empty {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.product-action {
+  font-size: 0.85rem;
+  color: var(--color-text-subtle, #6b7280);
+  margin-top: var(--space-2);
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   P11: INTERAKSI FILTER KATALOG & DOM RENDERING
+   ========================================================================== */
+.produk-status {
+  font-size: 0.95rem;
+  color: var(--color-muted, #78350f);
+  font-weight: 600;
+  margin-top: var(--space-1, 0.25rem);
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1rem 1.5rem;
+}
+
+.filter-button {
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--color-text, #1f2937);
+  padding: 0.65rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-button:hover,
+.filter-button:focus-visible {
+  border-color: var(--color-primary, #2563eb);
+  outline: 3px solid rgb(37 99 235 / 20%);
+  outline-offset: 2px;
+}
+
+.filter-button.is-active {
+  background: var(--color-primary, #2563eb);
+  border-color: var(--color-primary, #2563eb);
+  color: #ffffff;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  border: 1px dashed #94a3b8;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  color: #64748b;
+  text-align: center;
+  font-weight: 500;
+}
+
+.ghost-button {
+  display: inline-block;
+  margin-top: var(--space-2, 0.5rem);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px dashed var(--color-border, #cbd5e1);
+  border-radius: var(--radius-sm, 4px);
+  background: transparent;
+  color: var(--color-muted, #64748b);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.2s ease;
+}
+
+.ghost-button:hover {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #f87171;
+}
+
+/* ==========================================================================
+   8. KOMPONEN: GALERI & MEDIA (GRID - 2 TRACKS)
+   ========================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  
+}
+
+.gallery-grid .media-card {
+  margin-block: 0;
+}
+
+figure {
+  margin-inline: 0;
+}
+
+figcaption {
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.media-card img {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--space-2);
+}
+
+audio {
+  display: block;
+  width: 100%;
+  max-width: 32rem;
+  margin-top: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   9. KOMPONEN: TABEL
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+caption {
+  margin-bottom: var(--space-2);
+  color: var(--color-muted);
+  font-weight: 700;
+  text-align: left;
+}
+
+.table-scroll { max-width: 100%; overflow-x: auto; }
+.table-scroll:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+.table-scroll table { min-width: 40rem; }
+
+th,
+td {
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  border: 1px solid var(--color-border);
+}
+
+th {
+  background: var(--color-accent-soft);
+  color: var(--color-primary-strong);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   10. KOMPONEN: FORM (GRID 2 KOLOM & FLEXBOX)
+   ========================================================================== */
+form,
+#form-kontak {
+  position: relative; /* Containing block untuk elemen positioning lokal (.form-badge) */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: start;
+  margin-block: var(--space-4);
+  padding: clamp(1.5rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.5rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* Positioning Lokal: Menempel pada sudut kanan atas containing block (#form-kontak) */
+.form-badge {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-4);
+  padding: var(--space-xs) var(--space-2);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-primary-strong);
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.field {
+  margin-bottom: 0;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.field label,
+legend {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-weight: 700;
+  color: var(--color-primary-strong);
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field select,
+.field textarea {
+  width: 100%;
+  padding: var(--space-2);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.field-hint {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+fieldset,
+.form-fieldset {
+  margin: 0;
+  padding: var(--space-3);
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+}
+
+fieldset legend,
+.form-fieldset legend {
+  padding-inline: var(--space-1);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-strong);
+}
+
+/* Flexbox Kelompok 1: Pilihan opsi radio 1-dimensi */
+.options-group {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-1);
+}
+
+.option-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.option-label input[type="radio"],
+.option-label input[type="checkbox"],
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--color-accent);
+}
+
+/* Flexbox Kelompok 2: Kelompok aksi tombol dan catatan status 1-dimensi */
+.form-actions {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+  margin-top: var(--space-1);
+}
+
+.form-note {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.preview-section {
+  grid-column: 1 / -1;
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 2px dashed var(--color-border);
+}
+
+.preview-section h2 {
+  margin-bottom: var(--space-2);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+#preview-form {
+  padding: var(--space-3);
+  white-space: pre-wrap;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   10a. VALIDASI FORM & AKSESIBILITAS (P12)
+   ========================================================================== */
+.field-error,
+.form-feedback {
+  margin: 0;
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.field-error {
+  min-height: 1.4rem;
+  font-size: 0.875rem;
+}
+
+[aria-invalid="true"] {
+  border-color: #b91c1c;
+  box-shadow: 0 0 0 3px rgb(185 28 28 / 15%);
+}
+
+.form-feedback.success {
+  color: #166534;
+}
+
+.form-feedback {
+  grid-column: 1 / -1;
+  font-size: 0.95rem;
+}
+
+.form-fieldset,
+#topik-error {
+  grid-column: 1 / -1;
+}
+
+.checkbox-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.checkbox-field .option-label {
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+/* Panel Preferensi & Newsletter */
+.preferensi-section,
+.newsletter-section {
+  margin-top: var(--space-4);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.preferensi-section h2,
+.newsletter-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-2);
+  color: var(--color-primary);
+}
+
+.preferensi-status {
+  margin-bottom: var(--space-3);
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.preferensi-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-strong);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px);
+}
+
+.form-newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 28rem;
+  margin-top: var(--space-3);
+}
+
+.form-newsletter .field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+/* ==========================================================================
+   11. KOMPONEN: FOOTER
+   ========================================================================== */
+.site-footer {
+  margin-top: var(--space-xl);
+  padding: var(--space-4);
+  color: var(--color-muted);
+  text-align: center;
+  background: var(--color-surface);
+  border-top: 2px solid var(--color-border);
+}
+
+.site-footer p {
+  margin-bottom: 0;
+  max-width: none;
+}
+
+/* ==========================================================================
+   12. FOCUS INDICATOR
+   ========================================================================== */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 1px;
+  border-color: var(--color-focus);
+}
+
+/* ==========================================================================
+   13. MEDIA QUERIES — PROGRESSIVE ENHANCEMENT (MOBILE-FIRST)
+   --------------------------------------------------------------------------
+   Breakpoint 42rem (~672px):
+     Gejala  → Header brand + nav terlalu rapat, galeri satu kolom membuang
+               ruang horizontal, nav link menumpuk vertikal.
+     Hasil   → Header menjadi baris (row), nav link horizontal, galeri 2 kolom.
+
+   Breakpoint 48rem (~768px):
+     Gejala  → Hero teks terlalu lebar, product card satu kolom kurang efisien,
+               form kontak field terlalu panjang secara horizontal.
+     Hasil   → Hero 2 kolom (teks + gambar), product grid 2 kolom, form 2 kolom.
+
+   Breakpoint 60rem (~960px):
+     Gejala  → Product card hanya 2 kolom membuang ruang pada layar lebar.
+     Hasil   → Product grid 3 kolom, layout penuh memanfaatkan lebar.
+   ========================================================================== */
+
+@media (min-width: 42rem) {
+  /* Header: dari kolom ke baris */
+  .site-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  /* Nav: link horizontal */
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    gap: var(--space-2);
+  }
+
+  nav ul,
+  .nav ul {
+    flex-direction: row;
+    gap: var(--space-2);
+  }
+
+  nav a,
+  .nav a {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  /* Galeri: 2 kolom */
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 48rem) {
+  /* Hero: 2 kolom (teks + gambar) */
+  .hero { grid-template-columns: 1.2fr 0.8fr; }
+
+  /* Product: 2 kolom */
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* Form: 2 kolom */
+  form,
+  #form-kontak { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 60rem) {
+  /* Product: 3 kolom */
+  .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

@@ -27,6 +27,33 @@
     return pesan === "";
   }
 
+  function simpanPreferensiNewsletter(email) {
+    const data = {
+      email: email,
+      subscribedAt: new Date().toISOString(),
+    };
+    localStorage.setItem(STORAGE_KEY_NEWSLETTER, JSON.stringify(data));
+  }
+
+  function muatPreferensiNewsletter() {
+    try {
+      const tersimpan = localStorage.getItem(STORAGE_KEY_NEWSLETTER);
+      if (!tersimpan) return;
+
+      const data = JSON.parse(tersimpan);
+      if (data && data.email && emailInput) {
+        emailInput.value = data.email;
+        if (feedbackEl) {
+          feedbackEl.textContent = `Email (${data.email}) sudah tersimpan untuk langganan info promo.`;
+          feedbackEl.classList.add("success");
+        }
+      }
+    } catch (error) {
+      console.warn("Data newsletter tidak valid.", error);
+      localStorage.removeItem(STORAGE_KEY_NEWSLETTER);
+    }
+  }
+
   if (emailInput) {
     emailInput.addEventListener("input", () => {
       if (emailInput.getAttribute("aria-invalid") === "true") {
@@ -54,7 +81,7 @@
     }
 
     try {
-      localStorage.setItem(STORAGE_KEY_NEWSLETTER, emailInput.value);
+      simpanPreferensiNewsletter(emailInput.value);
     } catch (error) {
       console.warn("Gagal menyimpan data newsletter.", error);
     }
@@ -66,4 +93,7 @@
 
     formNewsletter.reset();
   });
+
+  // Muat data preferensi newsletter jika pernah tersimpan sebelumnya
+  muatPreferensiNewsletter();
 })();
