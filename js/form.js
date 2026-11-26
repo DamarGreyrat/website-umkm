@@ -4,17 +4,17 @@ const formFeedback = document.querySelector("#form-feedback");
 const fields = ["nama", "email", "telepon", "paket", "pesan", "setuju"].map((id) => document.querySelector(`#${id}`));
 const topikInputs = document.querySelectorAll('input[name="topik"]');
 
-const STORAGE_KEY = "kopi-nusa-preferensi-kontak";
+const STORAGE_KEY = "nesztyopage-contact-preferences";
 
 function getFieldError(field) {
   const validity = field.validity;
 
-  if (validity.valueMissing) return "Bagian ini wajib diisi.";
-  if (validity.typeMismatch) return "Format data belum sesuai.";
+  if (validity.valueMissing) return "This field is required.";
+  if (validity.typeMismatch) return "Invalid format.";
   if (validity.tooShort || (field.minLength > 0 && field.value && field.value.length < field.minLength)) {
-    return `Isi minimal ${field.minLength} karakter.`;
+    return `Please enter at least ${field.minLength} characters.`;
   }
-  if (validity.patternMismatch) return "Format belum sesuai contoh yang diminta.";
+  if (validity.patternMismatch) return "Format does not match the requested example.";
 
   return "";
 }
@@ -39,7 +39,7 @@ function validasiField(field) {
 function validasiTopik() {
   const topikError = document.querySelector("#topik-error");
   const topikValid = Array.from(topikInputs).some((input) => input.checked);
-  const pesan = topikValid ? "" : "Bagian ini wajib diisi.";
+  const pesan = topikValid ? "" : "This field is required.";
 
   topikInputs.forEach((input) => {
     input.setCustomValidity(pesan);
@@ -56,15 +56,15 @@ function validasiTopik() {
 function tampilkanPreview() {
   const data = new FormData(form);
   preview.textContent = [
-    `Nama: ${data.get("nama")}`,
+    `Name: ${data.get("nama")}`,
     `Email: ${data.get("email")}`,
-    `Telepon: ${data.get("telepon")}`,
-    `Paket: ${data.get("paket")}`,
-    `Topik: ${data.get("topik")}`,
-    `Pesan: ${data.get("pesan")}`,
+    `Phone: ${data.get("telepon")}`,
+    `Commission Type: ${data.get("paket")}`,
+    `Topic: ${data.get("topik")}`,
+    `Message: ${data.get("pesan")}`,
   ].join("\n");
 
-  formFeedback.textContent = "Form valid. Preview berhasil dibuat.";
+  formFeedback.textContent = "Form is valid. Preview generated successfully.";
   formFeedback.classList.add("success");
 }
 
@@ -73,9 +73,9 @@ function updatePreferensiUI(preferensi) {
   if (!statusEl) return;
 
   if (preferensi && (preferensi.paket || preferensi.topik)) {
-    statusEl.textContent = `Tersimpan: Paket "${preferensi.paket || "-"}", Topik "${preferensi.topik || "-"}".`;
+    statusEl.textContent = `Saved: Commission Type "${preferensi.paket || "-"}", Topic "${preferensi.topik || "-"}".`;
   } else {
-    statusEl.textContent = "Belum ada preferensi tersimpan di perangkat ini.";
+    statusEl.textContent = "No preferences saved on this device yet.";
   }
 }
 
@@ -111,7 +111,7 @@ function muatPreferensi() {
 
     updatePreferensiUI(preferensi);
   } catch (error) {
-    console.warn("Preferensi tidak valid.", error);
+    console.warn("Invalid preferences.", error);
     localStorage.removeItem(STORAGE_KEY);
     updatePreferensiUI(null);
   }
@@ -126,7 +126,6 @@ if (form) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    // Validasi semua field dan topik untuk memunculkan error state
     fields.forEach((field) => {
       if (field) validasiField(field);
     });
@@ -134,7 +133,7 @@ if (form) {
     const semuaValid = fields.every((field) => validasiField(field));
 
     if (!semuaValid || !topikValid || !form.checkValidity()) {
-      formFeedback.textContent = "Periksa kembali bagian yang ditandai.";
+      formFeedback.textContent = "Please review the highlighted fields.";
       formFeedback.classList.remove("success");
       if (preview) {
         preview.textContent = "";
@@ -148,7 +147,6 @@ if (form) {
     tampilkanPreview();
   });
 
-  // Listener interaktif agar status error diperbarui saat pengguna mulai mengisi
   fields.forEach((field) => {
     if (!field) return;
     field.addEventListener("input", () => {
@@ -181,10 +179,9 @@ if (btnHapusPreferensi) {
     });
     const statusEl = document.querySelector("#preferensi-status");
     if (statusEl) {
-      statusEl.textContent = "Preferensi berhasil dihapus.";
+      statusEl.textContent = "Preferences cleared.";
     }
   });
 }
 
-// Muat data preferensi lokal saat halaman dimuat
 muatPreferensi();

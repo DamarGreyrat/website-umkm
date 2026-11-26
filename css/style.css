@@ -1,23 +1,23 @@
 /* ==========================================================================
-   1. DESIGN TOKENS (TEMA: BARA & MADU)
+   1. DESIGN TOKENS (TEMA: NESZTYOPAGE - #D7625B, #F4E3AC, #93AF3E, #10644C)
    ========================================================================== */
 :root {
-  /* Warna Berbasis Fungsi - Identitas Membara (Merah, Oranye, Kuning) */
-  --color-primary: #991b1b;        /* Brand/Header Utama (Merah Bara Membakar) */
-  --color-primary-strong: #7f1d1d; /* Brand Hover & Kontras Gelap (Merah Arang) */
-  --color-primary-soft: #fef08a;   /* Highlight Brand & Active Badge (Kuning Madu) */
+  /* Warna Berbasis Fungsi - Palet Dino (#10644C, #93AF3E, #F4E3AC, #D7625B) */
+  --color-primary: #10644C;        /* Brand/Header/Hero Utama (Deep Forest Green) */
+  --color-primary-strong: #0a4635; /* Brand Hover & Kontras Gelap */
+  --color-primary-soft: #F4E3AC;   /* Highlight Brand & Active Badge (Warm Cream) */
 
-  --color-accent: #c2410c;         /* Aksi Interaktif Utama / CTA (Oranye Api) */
-  --color-accent-strong: #9a3412;  /* Aksi Hover CTA (Oranye Bakar Pekat) */
-  --color-accent-soft: #ffedd5;    /* Latar Fieldset & Hover Halus (Krem Oranye Hangat) */
-  --color-brand-glow: #f59e0b;     /* Aksen Kilau Madu Bakar */
+  --color-accent: #D7625B;         /* Aksi Interaktif Utama / CTA (Terracotta Coral) */
+  --color-accent-strong: #b94b44;  /* Aksi Hover CTA */
+  --color-accent-soft: #F4E3AC;    /* Latar Fieldset, Table Header & Hover Halus */
+  --color-brand-glow: #93AF3E;     /* Aksen Olive Moss Green */
 
   /* Warna Netral & Teks */
-  --color-text: #26130b;           /* Teks Utama (Arang Hangat - Kontras Tinggi) */
-  --color-muted: #78350f;          /* Teks Sekunder/Keterangan (Umber Panggang) */
+  --color-text: #102a22;           /* Teks Utama (Kontras Tinggi) */
+  --color-muted: #10644C;          /* Teks Sekunder/Keterangan */
   --color-surface: #ffffff;        /* Latar Kartu & Form */
-  --color-surface-soft: #fffbeb;   /* Latar Belakang Halaman (Krem Mentega Hangat) */
-  --color-border: #fed7aa;         /* Garis Pembatas Hangat */
+  --color-surface-soft: #faf6e8;   /* Latar Belakang Halaman (Soft Cream dari #F4E3AC) */
+  --color-border: #dfd3a8;         /* Garis Pembatas Hangat */
   --color-focus: #1d4ed8;          /* Indikator Fokus Aksesibel (Royal Blue WCAG AAA) */
 
   /* Skala Spacing (Termasuk Pasangan Token Baru: Micro & Macro Spacing) */
@@ -307,7 +307,7 @@ nav a[aria-current="page"],
 
 .hero button:hover,
 .hero .button:hover {
-  color: var(--color-primary-strong);
+  color: var(--color-surface);
   background: var(--color-brand-glow);
 }
 
@@ -418,6 +418,58 @@ button:active,
 }
 
 .info-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Do & Don't dan TOS */
+.dodont-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.dodont-card {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.dodont-card ul {
+  margin-bottom: 0;
+}
+
+.dodont-badge {
+  display: inline-block;
+  padding: 0.25rem var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-full);
+}
+
+.dodont-badge.is-do {
+  background: #e9f2d0;
+  color: #3d5214;
+}
+
+.dodont-badge.is-dont {
+  background: #fbe4e2;
+  color: #9f3630;
+}
+
+.tos-list {
+  padding-left: var(--space-4);
+  margin: 0;
+}
+
+.tos-list li {
+  margin-bottom: var(--space-2);
+}
+
+.tos-list li:last-child {
   margin-bottom: 0;
 }
 
@@ -676,38 +728,77 @@ audio {
 /* ==========================================================================
    9. KOMPONEN: TABEL
    ========================================================================== */
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+}
+
+.table-scroll:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
 table {
   width: 100%;
-  border-collapse: collapse;
-  margin-block: var(--space-4);
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-block: var(--space-2);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
 caption {
   margin-bottom: var(--space-2);
-  color: var(--color-muted);
-  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  font-weight: 800;
   text-align: left;
 }
-
-.table-scroll { max-width: 100%; overflow-x: auto; }
-.table-scroll:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
-.table-scroll table { min-width: 40rem; }
 
 th,
 td {
   padding: var(--space-2) var(--space-3);
   text-align: left;
-  border: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
-th {
-  background: var(--color-accent-soft);
+thead th {
+  background: var(--color-primary-soft);
   color: var(--color-primary-strong);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+thead th:last-child,
+tbody td:last-child {
+  text-align: right;
+}
+
+tbody th[scope="row"] {
+  background: transparent;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+tbody td {
+  color: var(--color-accent);
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-surface-soft);
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* ==========================================================================
@@ -1080,8 +1171,11 @@ input[type="checkbox"] {
 }
 
 @media (min-width: 48rem) {
-  /* Hero: 2 kolom (teks + gambar) */
-  .hero { grid-template-columns: 1.2fr 0.8fr; }
+  /* Hero: 2 kolom (teks + gambar) bila ada gambar */
+  .hero:has(.hero-image) { grid-template-columns: 1.2fr 0.8fr; }
+
+  /* Do & Don't: 2 kolom */
+  .dodont-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   /* Product: 2 kolom */
   .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

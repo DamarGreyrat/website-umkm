@@ -1,183 +1,147 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ayam Bakar Madu Damar - Website UMKM</title>
+    <title>Pricelist - nesztyopage</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js" defer></script>
     <script src="js/app.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">Ayam Bakar Madu</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Buka menu navigasi">
+      <a class="brand" href="index.html">nesztyopage</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
       </button>
-      <nav id="primary-nav" class="nav" aria-label="Navigasi utama">
-        <a href="index.html">Beranda</a>
-        <a href="tentang.html">Tentang Kami</a>
-        <a aria-current="page" href="produk.html">Produk</a>
-        <a href="galeri.html">Galeri</a>
-        <a href="kontak.html">Kontak</a>
+      <nav id="primary-nav" class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="tentang.html">Terms of Service</a>
+        <a aria-current="page" href="produk.html">Pricelist</a>
+        <a href="galeri.html">Gallery</a>
+        <a href="kontak.html">Contact</a>
       </nav>
     </header>
     <main id="konten" class="page">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
-          <p class="eyebrow">UMKM Pekalongan</p>
-          <h1 id="hero-title">Produk Ayam Bakar Madu</h1>
-          <p>Pilih produk sesuai selera anda.</p>
+          <p class="eyebrow">Commission</p>
+          <h1 id="hero-title">Pricelist</h1>
+          <p>Choose your commission type below.</p>
         </div>
       </section>
-      <section aria-labelledby="kategori-title">
-        <h2 id="kategori-title">Kategori Produk</h2>
-        <ul>
-          <li>Paket Ayam Bakar Madu</li>
-          <li>Paket Sate Ayam Madu</li>
-        </ul>
-      </section>
+
       <section class="product-section" aria-labelledby="produk-title">
         <div class="section-heading">
-          <p class="eyebrow">Katalog</p>
-          <h2 id="produk-title">Produk Unggulan UMKM</h2>
-          <p id="produk-status" class="produk-status">Produk belum dimuat.</p>
+          <p class="eyebrow">Catalog</p>
+          <h2 id="produk-title">Pricelist</h2>
+          <p id="produk-status" class="produk-status">Loading pricelist...</p>
         </div>
 
-        <div class="filter-bar" aria-label="Filter kategori produk">
-          <button type="button" class="filter-button is-active" data-filter="Semua">Semua</button>
-          <button type="button" class="filter-button" data-filter="Makanan">Makanan</button>
-          <button type="button" class="filter-button" data-filter="Minuman">Minuman</button>
-          <button type="button" class="filter-button" data-filter="Paket Hemat">Paket Hemat</button>
-          <button type="button" class="filter-button" data-filter="Frozen Food">Frozen Food</button>
+        <div class="filter-bar" aria-label="Filter commission category">
+          <button type="button" class="filter-button is-active" data-filter="All">All</button>
+          <button type="button" class="filter-button" data-filter="Normal full render character">Normal full render character</button>
+          <button type="button" class="filter-button" data-filter="Chibi full render character">Chibi full render character</button>
+          <button type="button" class="filter-button" data-filter="Simple Chibi">Simple Chibi</button>
         </div>
 
         <div id="produk-grid" class="product-grid" aria-live="polite"></div>
       </section>
-      <section aria-labelledby="produk-pilihan-title">
-        <h2 id="produk-pilihan-title">Produk Pilihan</h2>
-        <div class="product-grid">
-          <article class="product-card">
-            <span class="product-badge">Terlaris</span>
-            <h3>Ayam Bakar Madu 1/4</h3>
-            <p>Potongan paha atau dada empuk berbalur bumbu rempah bakar dan madu murni.</p>
-            <p class="price">Rp20.000</p>
-            <div class="card-actions">
-              <a class="button" href="kontak.html">Tanya produk</a>
-              <a href="#harga-title">Lihat tabel harga</a>
-            </div>
-          </article>
 
-          <article class="product-card">
-            <span class="product-badge">Hemat</span>
-            <h3>Ayam Bakar Madu 1 Ekor</h3>
-            <p>Satu ekor ayam utuh panggang legit khas Damar, pas untuk santap keluarga.</p>
-            <p class="price">Rp40.000</p>
-            <div class="card-actions">
-              <a class="button" href="kontak.html">Tanya produk</a>
-              <a href="#harga-title">Lihat tabel harga</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <span class="product-badge">Segar</span>
-            <h3>Es Jeruk Madu Pekalongan</h3>
-            <p>Kesegaran perasan jeruk asli berpadu manis alaminya madu murni penyegar dahaga.</p>
-            <p class="price">Rp8.000</p>
-            <div class="card-actions">
-              <a class="button" href="kontak.html">Tanya produk</a>
-              <a href="#harga-title">Lihat tabel harga</a>
-            </div>
-          </article>
-        </div>
-      </section>
       <section aria-labelledby="harga-title">
-        <h2 id="harga-title">Daftar Harga Menu</h2>
-        <div class="table-scroll" role="region" aria-labelledby="daftar-harga-caption" tabindex="0">
-        <table>
-          <caption id="daftar-harga-caption">Daftar harga menu Ayam Bakar Madu Damar</caption>
-          <thead>
-            <tr>
-              <th scope="col">Produk</th>
-              <th scope="col">Porsi / Ukuran</th>
-              <th scope="col">Harga</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Ayam Bakar Madu 1/4</th>
-              <td>Porsi 1 Orang</td>
-              <td>Rp20.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Ayam Bakar Madu 1/2</th>
-              <td>Porsi 2 Orang</td>
-              <td>Rp28.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Ayam Bakar Madu 1 Ekor</th>
-              <td>Porsi 4 Orang / Keluarga</td>
-              <td>Rp40.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Paket Nasi Kotak Komplit</th>
-              <td>Nasi, Ayam 1/4, Lalapan &amp; Sambal</td>
-              <td>Rp25.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Es Jeruk Madu Pekalongan</th>
-              <td>Gelas Besar (Minuman)</td>
-              <td>Rp8.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Es Teh Manis Madu</th>
-              <td>Gelas Sedang (Minuman)</td>
-              <td>Rp5.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Wedang Jahe Madu Hangat</th>
-              <td>Cangkir Hangat (Minuman)</td>
-              <td>Rp7.000</td>
-            </tr>
-          </tbody>
-        </table>
+        <h2 id="harga-title">Pricelist Table</h2>
+
+        <div class="table-scroll" role="region" aria-labelledby="normal-caption" tabindex="0">
+          <table>
+            <caption id="normal-caption">Normal full render character</caption>
+            <thead>
+              <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Headshot</th>
+                <td>60k</td>
+              </tr>
+              <tr>
+                <th scope="row">Bust up</th>
+                <td>70k</td>
+              </tr>
+              <tr>
+                <th scope="row">Half body</th>
+                <td>80k</td>
+              </tr>
+              <tr>
+                <th scope="row">Knee up</th>
+                <td>100k</td>
+              </tr>
+              <tr>
+                <th scope="row">Fullbody</th>
+                <td>150k</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <br />
-        <div class="table-scroll" role="region" aria-labelledby="produk-baru-caption" tabindex="0">
-        <table>
-          <caption id="produk-baru-caption">Produk Baru Ayam Bakar Madu Damar</caption>
-          <thead>
-            <tr>
-              <th scope="col">Produk</th>
-              <th scope="col">Porsi / Ukuran</th>
-              <th scope="col">Harga</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Sate Ayam Madu</th>
-              <td>1 Porsi (10 Tusuk)</td>
-              <td>Rp19.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Ayam Bakar Madu Pedas Manis</th>
-              <td>Porsi 1 Orang (Potong 1/4)</td>
-              <td>Rp22.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Kulit Ayam Bakar Madu Crispy</th>
-              <td>1 Porsi Gurih Renyah</td>
-              <td>Rp15.000</td>
-            </tr>
-          </tbody>
-        </table>
+
+        <div class="table-scroll" role="region" aria-labelledby="chibi-caption" tabindex="0">
+          <table>
+            <caption id="chibi-caption">Chibi full render character</caption>
+            <thead>
+              <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Headshot</th>
+                <td>40k</td>
+              </tr>
+              <tr>
+                <th scope="row">Halfbody</th>
+                <td>60k</td>
+              </tr>
+              <tr>
+                <th scope="row">Fullbody</th>
+                <td>80k</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-scroll" role="region" aria-labelledby="simple-chibi-caption" tabindex="0">
+          <table>
+            <caption id="simple-chibi-caption">Simple Chibi</caption>
+            <thead>
+              <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Headshot</th>
+                <td>15k</td>
+              </tr>
+              <tr>
+                <th scope="row">Halfbody</th>
+                <td>20k</td>
+              </tr>
+              <tr>
+                <th scope="row">Fullbody</th>
+                <td>30k</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
     </main>
     <footer class="site-footer">
-      <p>Hubungi Ayam Bakar Madu Damar melalui WhatsApp: 0812-0000-0000 instagram: @AyamBakarDamar</p>
+      <p>Contact nesztyopage via WhatsApp: 0812-0000-0000 | Instagram: @nesztyopage</p>
     </footer>
   </body>
 </html>

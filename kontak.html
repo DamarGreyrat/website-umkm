@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kontak - Ayam Bakar Madu Pekalongan</title>
+    <title>Contact - nesztyopage</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js" defer></script>
     <script src="js/form.js" defer></script>
@@ -11,26 +11,26 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">Ayam Bakar Madu</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Buka menu navigasi">
+      <a class="brand" href="index.html">nesztyopage</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
       </button>
-      <nav id="primary-nav" class="nav" aria-label="Navigasi utama">
-        <a href="index.html">Beranda</a>
-        <a href="tentang.html">Tentang Kami</a>
-        <a href="produk.html">Produk</a>
-        <a href="galeri.html">Galeri</a>
-        <a aria-current="page" href="kontak.html">Kontak</a>
+      <nav id="primary-nav" class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="tentang.html">Terms of Service</a>
+        <a href="produk.html">Pricelist</a>
+        <a href="galeri.html">Gallery</a>
+        <a aria-current="page" href="kontak.html">Contact</a>
       </nav>
     </header>
     <main id="konten" class="page">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
-          <p class="eyebrow">UMKM Pekalongan</p>
-          <h1 id="hero-title">Kontak Form Ayam Bakar Madu</h1>
-          <p>Isi Form sesuai keperluan anda.</p>
+          <p class="eyebrow">Commission Order</p>
+          <h1 id="hero-title">Contact Form nesztyopage</h1>
+          <p>Fill out the form below to request a commission or ask for more details.</p>
         </div>
       </section>
 
@@ -38,7 +38,7 @@
         <span class="form-badge">Fast Response (WhatsApp)</span>
 
         <div class="field">
-          <label for="nama">Nama lengkap</label>
+          <label for="nama">Full Name</label>
           <input
             id="nama"
             name="nama"
@@ -46,28 +46,28 @@
             autocomplete="name"
             required
             minlength="3"
-            placeholder="Contoh: Budi Santoso"
+            placeholder="e.g., Alex Morgan"
             aria-describedby="nama-error"
           />
           <p id="nama-error" class="field-error" aria-live="polite"></p>
         </div>
 
         <div class="field">
-          <label for="email">Alamat email</label>
+          <label for="email">Email Address</label>
           <input
             id="email"
             name="email"
             type="email"
             autocomplete="email"
             required
-            placeholder="nama@domain.com"
+            placeholder="name@domain.com"
             aria-describedby="email-error"
           />
           <p id="email-error" class="field-error" aria-live="polite"></p>
         </div>
 
         <div class="field">
-          <label for="telepon">Nomor telepon / WhatsApp</label>
+          <label for="telepon">Phone / WhatsApp Number</label>
           <input
             id="telepon"
             name="telepon"
@@ -75,52 +75,52 @@
             autocomplete="tel"
             required
             pattern="^(\+62|62|0)8[0-9]{8,11}$"
-            placeholder="Contoh: 081234567890"
+            placeholder="e.g., 081234567890"
             aria-describedby="bantuan-telepon telepon-error"
           />
-          <small id="bantuan-telepon" class="field-hint">Format nomor Indonesia (contoh: 081234567890).</small>
+          <small id="bantuan-telepon" class="field-hint">Indonesian phone format (e.g., 081234567890).</small>
           <p id="telepon-error" class="field-error" aria-live="polite"></p>
         </div>
 
         <div class="field">
-          <label for="paket">Paket yang diminati</label>
+          <label for="paket">Commission Type</label>
           <select id="paket" name="paket" required aria-describedby="paket-error">
-            <option value="">Pilih paket</option>
-            <option value="rumahan">Paket rumahan</option>
-            <option value="kantor">Paket kantor</option>
-            <option value="reseller">Paket reseller</option>
+            <option value="">Select commission type</option>
+            <option value="Normal full render character">Normal full render character</option>
+            <option value="Chibi full render character">Chibi full render character</option>
+            <option value="Simple Chibi">Simple Chibi</option>
           </select>
           <p id="paket-error" class="field-error" aria-live="polite"></p>
         </div>
 
         <fieldset class="form-fieldset" aria-describedby="topik-error">
-          <legend>Topik pertanyaan</legend>
+          <legend>Inquiry Topic</legend>
           <div class="options-group">
             <label for="topik-produk" class="option-label">
-              <input type="radio" id="topik-produk" name="topik" value="Informasi produk" required />
-              Informasi produk
+              <input type="radio" id="topik-produk" name="topik" value="Commission Order" required />
+              Commission Order
             </label>
             <label for="topik-pesanan" class="option-label">
-              <input type="radio" id="topik-pesanan" name="topik" value="Status pesanan" />
-              Status pesanan
+              <input type="radio" id="topik-pesanan" name="topik" value="Order Status" />
+              Order Status
             </label>
             <label for="topik-kerjasama" class="option-label">
-              <input type="radio" id="topik-kerjasama" name="topik" value="Kerja sama" />
-              Kerja sama
+              <input type="radio" id="topik-kerjasama" name="topik" value="Collaboration" />
+              Collaboration
             </label>
           </div>
         </fieldset>
         <p id="topik-error" class="field-error" aria-live="polite"></p>
 
         <div class="field field-full">
-          <label for="pesan">Pesan</label>
+          <label for="pesan">Message</label>
           <textarea
             id="pesan"
             name="pesan"
             rows="5"
             required
             minlength="20"
-            placeholder="Tuliskan pesan atau pertanyaan Anda di sini... (minimal 20 karakter)"
+            placeholder="Write your message or commission details here... (minimum 20 characters)"
             aria-describedby="pesan-error"
           ></textarea>
           <p id="pesan-error" class="field-error" aria-live="polite"></p>
@@ -129,58 +129,58 @@
         <div class="field field-full checkbox-field">
           <label for="setuju" class="option-label">
             <input type="checkbox" id="setuju" name="setuju" required aria-describedby="setuju-error" />
-            Saya menyetujui bahwa data form ini boleh diproses dan dipreview.
+            I agree that this form data may be processed and previewed.
           </label>
           <p id="setuju-error" class="field-error" aria-live="polite"></p>
         </div>
 
         <div class="form-actions">
-          <button type="submit" class="btn-submit">Tampilkan Preview</button>
-          <span class="form-note">Data form diverifikasi sebelum preview dibuat.</span>
+          <button type="submit" class="btn-submit">Show Preview</button>
+          <span class="form-note">Form data is validated before the preview is generated.</span>
         </div>
 
         <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
 
         <section class="preview-section" aria-labelledby="preview-title">
-          <h2 id="preview-title">Preview Data</h2>
+          <h2 id="preview-title">Data Preview</h2>
           <pre id="preview-form" aria-live="polite"></pre>
         </section>
       </form>
 
-      <!-- Panel Preferensi Kontak Tersimpan -->
+      <!-- Saved Contact Preferences Panel -->
       <section class="preferensi-section" aria-labelledby="preferensi-title">
-        <h2 id="preferensi-title">Preferensi Kontak Tersimpan</h2>
-        <p id="preferensi-status" class="preferensi-status" aria-live="polite">Belum ada preferensi tersimpan di perangkat ini.</p>
+        <h2 id="preferensi-title">Saved Contact Preferences</h2>
+        <p id="preferensi-status" class="preferensi-status" aria-live="polite">No preferences saved on this device yet.</p>
         <div class="preferensi-actions">
-          <button type="button" id="btn-hapus-preferensi" class="btn-secondary">Hapus Preferensi</button>
+          <button type="button" id="btn-hapus-preferensi" class="btn-secondary">Clear Preferences</button>
         </div>
       </section>
 
-      <!-- Panel Form Newsletter Ringan -->
+      <!-- Newsletter Form Panel -->
       <section class="newsletter-section" aria-labelledby="newsletter-title">
-        <h2 id="newsletter-title">Langganan Info &amp; Promo</h2>
-        <p>Dapatkan update menu dan diskon spesial UMKM Ayam Bakar Madu.</p>
+        <h2 id="newsletter-title">Subscribe for Info &amp; Updates</h2>
+        <p>Get commission slot updates and news from nesztyopage.</p>
         <form id="form-newsletter" action="#" method="post" novalidate>
           <div class="field">
-            <label for="newsletter-email">Alamat Email</label>
+            <label for="newsletter-email">Email Address</label>
             <input
               id="newsletter-email"
               name="newsletter_email"
               type="email"
               autocomplete="email"
               required
-              placeholder="nama@domain.com"
+              placeholder="name@domain.com"
               aria-describedby="newsletter-error"
             />
             <p id="newsletter-error" class="field-error" aria-live="polite"></p>
           </div>
-          <button type="submit" class="btn-submit">Langganan</button>
+          <button type="submit" class="btn-submit">Subscribe</button>
           <p id="newsletter-feedback" class="form-feedback" role="status" aria-live="polite"></p>
         </form>
       </section>
-    </main>     
+    </main>
     <footer id="kontak" class="site-footer">
-      <p>Hubungi Ayam Bakar Madu Damar melalui WhatsApp: 0812-0000-0000 instagram: @AyamBakarDamar</p>
+      <p>Contact nesztyopage via WhatsApp: 0812-0000-0000 | Instagram: @nesztyopage</p>
     </footer>
   </body>
 </html>

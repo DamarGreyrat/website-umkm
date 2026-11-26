@@ -5,12 +5,12 @@
   const emailInput = formNewsletter.querySelector("#newsletter-email");
   const errorEl = formNewsletter.querySelector("#newsletter-error");
   const feedbackEl = formNewsletter.querySelector("#newsletter-feedback");
-  const STORAGE_KEY_NEWSLETTER = "kopi-nusa-newsletter-email";
+  const STORAGE_KEY_NEWSLETTER = "nesztyopage-newsletter-email";
 
   function getNewsletterError(input) {
     const validity = input.validity;
-    if (validity.valueMissing) return "Email wajib diisi untuk berlangganan.";
-    if (validity.typeMismatch) return "Format email belum sesuai.";
+    if (validity.valueMissing) return "Email is required to subscribe.";
+    if (validity.typeMismatch) return "Invalid email format.";
     return "";
   }
 
@@ -44,12 +44,12 @@
       if (data && data.email && emailInput) {
         emailInput.value = data.email;
         if (feedbackEl) {
-          feedbackEl.textContent = `Email (${data.email}) sudah tersimpan untuk langganan info promo.`;
+          feedbackEl.textContent = `Email (${data.email}) is saved for commission updates.`;
           feedbackEl.classList.add("success");
         }
       }
     } catch (error) {
-      console.warn("Data newsletter tidak valid.", error);
+      console.warn("Invalid newsletter data.", error);
       localStorage.removeItem(STORAGE_KEY_NEWSLETTER);
     }
   }
@@ -72,7 +72,7 @@
 
     if (!isValid || !formNewsletter.checkValidity()) {
       if (feedbackEl) {
-        feedbackEl.textContent = "Format email tidak valid. Periksa kembali.";
+        feedbackEl.textContent = "Invalid email format. Please check again.";
         feedbackEl.classList.remove("success");
       }
       formNewsletter.reportValidity();
@@ -83,17 +83,16 @@
     try {
       simpanPreferensiNewsletter(emailInput.value);
     } catch (error) {
-      console.warn("Gagal menyimpan data newsletter.", error);
+      console.warn("Failed to save newsletter data.", error);
     }
 
     if (feedbackEl) {
-      feedbackEl.textContent = "Terima kasih! Anda berhasil berlangganan info promo.";
+      feedbackEl.textContent = "Thank you! You have successfully subscribed to updates.";
       feedbackEl.classList.add("success");
     }
 
     formNewsletter.reset();
   });
 
-  // Muat data preferensi newsletter jika pernah tersimpan sebelumnya
   muatPreferensiNewsletter();
 })();
