@@ -648,7 +648,9 @@ button:active,
   color: #ffffff;
 }
 
-.empty-state {
+.empty-state,
+.loading-state,
+.error-state {
   grid-column: 1 / -1;
   border: 1px dashed #94a3b8;
   border-radius: 1rem;
@@ -657,6 +659,48 @@ button:active,
   color: #64748b;
   text-align: center;
   font-weight: 500;
+}
+
+.error-state {
+  border-color: #f87171;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.catalog-status {
+  display: inline-block;
+  margin-block: var(--space-1) var(--space-2);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.catalog-status.loading {
+  background: #fef3c7;
+  border-color: #f59e0b;
+  color: #92400e;
+}
+
+.catalog-status.success {
+  background: #dcfce7;
+  border-color: #22c55e;
+  color: #166534;
+}
+
+.catalog-status.empty {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #334155;
+}
+
+.catalog-status.error {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
 }
 
 .ghost-button {

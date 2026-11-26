@@ -1,0 +1,101 @@
+[
+  {
+    "id": "normal-headshot",
+    "name": "Headshot",
+    "category": "Normal full render character",
+    "price": 60000,
+    "stock": 5,
+    "featured": false,
+    "description": "Detailed full-render portrait from head to shoulders with custom lighting."
+  },
+  {
+    "id": "normal-bust-up",
+    "name": "Bust up",
+    "category": "Normal full render character",
+    "price": 70000,
+    "stock": 4,
+    "featured": true,
+    "description": "Full-render character illustration framed from the chest up, ideal for avatars."
+  },
+  {
+    "id": "normal-half-body",
+    "name": "Half body",
+    "category": "Normal full render character",
+    "price": 80000,
+    "stock": 3,
+    "featured": false,
+    "description": "Waist-up full-render character piece with expressive pose and shading."
+  },
+  {
+    "id": "normal-knee-up",
+    "name": "Knee up",
+    "category": "Normal full render character",
+    "price": 100000,
+    "stock": 2,
+    "featured": false,
+    "description": "Three-quarter full-render character illustration down to the knees."
+  },
+  {
+    "id": "normal-fullbody",
+    "name": "Fullbody",
+    "category": "Normal full render character",
+    "price": 150000,
+    "stock": 2,
+    "featured": true,
+    "description": "Complete head-to-toe full-render character showcase with full outfit detail."
+  },
+  {
+    "id": "chibi-headshot",
+    "name": "Headshot",
+    "category": "Chibi full render character",
+    "price": 40000,
+    "stock": 6,
+    "featured": false,
+    "description": "Cute full-render chibi portrait from head to shoulders."
+  },
+  {
+    "id": "chibi-halfbody",
+    "name": "Halfbody",
+    "category": "Chibi full render character",
+    "price": 60000,
+    "stock": 4,
+    "featured": false,
+    "description": "Half-body chibi character with soft shading and vibrant highlights."
+  },
+  {
+    "id": "chibi-fullbody",
+    "name": "Fullbody",
+    "category": "Chibi full render character",
+    "price": 80000,
+    "stock": 3,
+    "featured": true,
+    "description": "Full-body chibi illustration with full rendering and playful pose."
+  },
+  {
+    "id": "simple-chibi-headshot",
+    "name": "Headshot",
+    "category": "Simple Chibi",
+    "price": 15000,
+    "stock": 8,
+    "featured": false,
+    "description": "Quick clean-line simple chibi headshot with flat colors and soft blush."
+  },
+  {
+    "id": "simple-chibi-halfbody",
+    "name": "Halfbody",
+    "category": "Simple Chibi",
+    "price": 20000,
+    "stock": 6,
+    "featured": false,
+    "description": "Half-body simple chibi illustration great for icons and stickers."
+  },
+  {
+    "id": "simple-chibi-fullbody",
+    "name": "Fullbody",
+    "category": "Simple Chibi",
+    "price": 30000,
+    "stock": 5,
+    "featured": false,
+    "description": "Full-body simple chibi character with clean lines and charming proportions."
+  }
+]
